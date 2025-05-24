@@ -4,7 +4,7 @@ Pedro;Plomero;30
 Ana;Electricista;35
 Luis;Carpintero;22
 Sofia;Programador;40
-Carlos;Diseñador;18
+Carlos;Diseñador;10
 Elena;Plomero;28
 Jorge;Electricista;38
 Lucia;Carpintero;26
