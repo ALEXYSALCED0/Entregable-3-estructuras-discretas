@@ -107,7 +107,7 @@ if __name__ == "__main__":
     # Se itera sobre cada cliente y trabajador para agregar las aristas al grafo
     for i in range(len(clients)):
         for j in range(len(workers)):
-            if clients[i]["requiered occupation"]==workers[j]["occupation"] and int(clients[i]["presupuesto"])>=int(workers[j]["price"]):
+            if clients[i]["requiered occupation"]==workers[j]["occupation"] and float(clients[i]["presupuesto"])>=float(workers[j]["price"]):
                 graph.addEdge(i, j)
     # Se llama al metodo maxBPM para encontrar el emparejamiento maximo
     maxBPM=graph.maxBPM()
