@@ -39,7 +39,7 @@ def leerEmpleados():
         print(f'Error al leer el archivo, verifique que los valores estén dentro de lo estipulado: {e}')
         return False
 # En este codigo se implementa el algoritmo de emparejamiento bipartito para asignar trabajadores a clientes, es por esto que se cree la clase graph
-class graph:
+class Graph:
     # Se crea la clase graph para representar el grafo bipartito
     # Se inicializan los atributos nWorkers y nClients para representar la cantidad de trabajadores y clientes respectivamente
     # Se crea un diccionario graph para representar el grafo, donde cada cliente tiene una lista de trabajadores
@@ -88,10 +88,12 @@ class graph:
     # Se devuelve la lista de emparejamientos
     def getMatches(self):
         matches = []
-        for i in range(len(self.matchWorker)):
-            if self.matchWorker[i] != -1:
-                matches.append((self.matchWorker[i], i))
+        for client_index in range(self.nClients):
+            for worker_index, assigned_client in enumerate(self.matchWorker):
+                if assigned_client == client_index:
+                    matches.append((client_index, worker_index))
         return matches
+
     
 if __name__ == "__main__":
     # Se llama a las funciones leerClientes y leerEmpleados para leer los datos de los archivos
@@ -103,7 +105,7 @@ if __name__ == "__main__":
         exit(1)
     
     # Se crea un objeto de la clase graph con la cantidad de trabajadores y clientes
-    graph=graph(len(workers), len(clients))
+    graph=Graph(len(workers), len(clients))
     # Se itera sobre cada cliente y trabajador para agregar las aristas al grafo
     for i in range(len(clients)):
         for j in range(len(workers)):
